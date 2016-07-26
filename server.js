@@ -20,7 +20,7 @@ app.get('/secure',function(req,res){
 		
 		res.send({message:"secure page accessed with headers token. expires in 10 seconds - try to refresh"});
 	}else{
-		res.send("error");
+		res.status(404).send("error");
 	}
 	setTimeout(function(){
 	  fs.writeFile('./code.json', JSON.stringify([{code:"expired"}]), function (err) {
